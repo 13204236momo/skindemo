@@ -1,6 +1,7 @@
 package com.example.skindemo;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Environment;
@@ -19,7 +20,7 @@ import java.io.File;
  * 如果图标有固定的尺寸，不需要更改，那么drawable更加适合
  * 如果需要变大变小变大变小的，有动画的，放在mipmap中能有更高的质量
  */
-public class MainActivity extends SkinActivity {
+public class SkinOutActivity extends SkinActivity {
 
     private String skinPath;
 
@@ -84,5 +85,9 @@ public class MainActivity extends SkinActivity {
     @Override
     protected boolean openChangeSkin() {
         return true;
+    }
+
+    public void jumpSelf(View view) {
+        startActivity(new Intent(this,ThreeActivity.class));
     }
 }

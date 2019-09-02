@@ -82,4 +82,9 @@ public class CustomCircleView extends View implements ViewsMatch {
         }
         invalidate();
     }
+
+    @Override
+    public void skinnableViewLocal() {
+
+    }
 }

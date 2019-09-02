@@ -72,4 +72,18 @@ public class SkinnableImageView extends AppCompatImageView implements ViewsMatch
             }
         }
     }
+
+    @Override
+    public void skinnableViewLocal() {
+        // 根据自定义属性，获取styleable中的src属性
+        int key = R.styleable.SkinnableImageView[R.styleable.SkinnableImageView_android_src];
+        // 根据styleable获取控件某属性的resourceId
+        int backgroundResourceId = attrsBean.getViewResource(key);
+        if (backgroundResourceId > 0) {
+            // 兼容包转换
+            Drawable drawable = ContextCompat.getDrawable(getContext(), backgroundResourceId);
+            setImageDrawable(drawable);
+        }
+
+    }
 }

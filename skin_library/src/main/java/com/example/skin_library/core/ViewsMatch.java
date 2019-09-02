@@ -9,4 +9,6 @@ public interface ViewsMatch {
      * 控件换肤
      */
     void skinnableView();
+
+    void skinnableViewLocal();
 }

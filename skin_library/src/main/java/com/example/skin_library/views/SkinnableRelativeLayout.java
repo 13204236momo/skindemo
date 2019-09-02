@@ -67,4 +67,20 @@ public class SkinnableRelativeLayout extends RelativeLayout implements ViewsMatc
             }
         }
     }
+
+    @Override
+    public void skinnableViewLocal() {
+        // 根据自定义属性，获取styleable中的background属性
+        int key = R.styleable.SkinnableRelativeLayout[R.styleable.SkinnableRelativeLayout_android_background];
+        // 根据styleable获取控件某属性的resourceId
+        int backgroundResourceId = attrsBean.getViewResource(key);
+        if (backgroundResourceId > 0) {
+            // 兼容包转换
+            Drawable drawable = ContextCompat.getDrawable(getContext(), backgroundResourceId);
+            // 控件自带api，这里不用setBackgroundColor()因为在9.0测试不通过
+            // setBackgroundDrawable在这里是过时了
+            setBackground(drawable);
+        }
+
+    }
 }
